@@ -3,6 +3,8 @@ let jogo
 let loader
 let vida
 let fita
+let propMoeda
+let propVida
 
 let casas
 let muro
@@ -12,6 +14,7 @@ let inimigo;
 let inimigoGrande;
 let inimigoVoador;
 let pontuacao;
+let moedas
 
 let cenaAtual = 'telaInicial'
 let telaInicial

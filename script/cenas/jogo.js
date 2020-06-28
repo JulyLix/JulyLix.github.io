@@ -3,11 +3,13 @@ class Jogos {
         //loader = new Loader
         this.inimigoAtual = 0
         //mapa = fita.mapa
+        //this.btnReset = new BotaoGerenciador('Reiniciar', width / 2, height / 2, 'telaInicial', somDoJogo, somTitulo)
              
     }
     
 
     setup(){
+        
 
         matriz = new Matriz;
         pontuacao = new Pontuacao();
@@ -16,9 +18,12 @@ class Jogos {
         vida = new Vida(7, 3)
 
         personagem = new Personagem(matriz.personagem, imgPersonagem, 0, 30, 170, 200, 440);
+        propMoeda = new Moedas(imgMoeda, width - 100, 200, 100, 100, 270,270, 100)
+        propVida = new animaVida(imgVida, width -70, 200, 70, 70, 270, 270, 100)
         const inimigo = new Inimigo(matriz.inimigo, imgInimigo, width - 135, 30, 125, 125, 540, 540, 10, 100);
         const inimigoGrande = new Inimigo(matriz.inimigoGrande, imgInimigoGrande, width - 52, 30, 220, 220, 1080, 1080, 15, 150)
         const inimigoVoador = new Inimigo(matriz.inimigoVoador, imgInimigoVoador, width - 100, 250, 210, 150, 810, 540, 10, 200)
+        
         
       
         inimigos.push(inimigo)
@@ -27,11 +32,12 @@ class Jogos {
 
     }
 
-    keyPressed(key){
-        if (key === 'w') {
+    keyPressed(){
+        if (keyCode === 32) {
             personagem.pula()
             somDoPulo.play()
           }
+    
     }
 
     draw(){
@@ -45,11 +51,14 @@ class Jogos {
         personagem.exibe();
         personagem.aplicaGravidade();
 
-        //const linhAtual = fita.mapa[this.this.inimigoAtual]
         const inimigo = inimigos[this.inimigoAtual]
         const inimigoVisivel = inimigo.x < -inimigo.largura
 
-        //inimigo.velocidade = this.inimigoAtual.velocidade
+        propMoeda.exibe()
+        propMoeda.move()
+
+        propVida.exibe()
+        propVida.move()
 
         inimigo.exibe()
         inimigo.move()
@@ -69,9 +78,22 @@ class Jogos {
             personagem.tornarInvencivel()
             if (vida.vidas <= 0){
                 image(imgGameOver, width/2 - 200, height/3)
+                text('pressione ENTER para continuar', height / 7 * 5)
                 noLoop()
                 somDoJogo.stop();
+                //this.btnReset.draw();
             }
-            }
+        }
+
+        if (personagem.estaColidindo(propVida)) {
+            vida.ganhavida()
+        }
+
+        if (personagem.estaColidindo(propMoeda)) {
+            moedas++
+            pontuacao.addPontos(50)
+        }
     }
+
+    
 }

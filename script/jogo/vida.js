@@ -31,4 +31,6 @@ class Vida {
     perdeVida(){
         this.vidas--
     }
+
+    
 }

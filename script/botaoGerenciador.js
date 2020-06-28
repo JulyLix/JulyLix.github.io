@@ -1,13 +1,14 @@
 class BotaoGerenciador {
-    constructor(texto, x, y){
+    constructor(texto, x, y, cena, musica, musicaS){
         this.texto = texto
         this.x = x
         this.y = y
+        this.cena =cena
+        this.musica = musica
+        this.musicaS = musicaS
         this.botao = createButton(this.texto)
         this.botao.mousePressed(() => this._alteraCena())
         this.botao.addClass('botao-tela-inicial')
-
-        //loader = new Loader
     }
 
     draw(){
@@ -17,8 +18,9 @@ class BotaoGerenciador {
 
     _alteraCena(){
         this.botao.remove()
-        somTitulo.stop()
-        somDoJogo.loop()
-        cenaAtual = 'jogo'
+        this.musica.stop()
+        this.musicaS.loop()
+        loop()     
+        cenaAtual = this.cena
     }
 }
