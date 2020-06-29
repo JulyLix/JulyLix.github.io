@@ -1,15 +1,12 @@
 class Jogos {
     constructor(){
         //loader = new Loader
-        this.inimigoAtual = 0
-        //mapa = fita.mapa
-        //this.btnReset = new BotaoGerenciador('Reiniciar', width / 2, height / 2, 'telaInicial', somDoJogo, somTitulo)
-             
+        this.inimigoAtual = 0    
+        this.btnReset = new BotaoGerenciador('Reiniciar', width / 2, height / 2, 'telaInicial', somDoJogo, somTitulo)        
     }
     
 
     setup(){
-        
 
         matriz = new Matriz;
         pontuacao = new Pontuacao();
@@ -78,10 +75,10 @@ class Jogos {
             personagem.tornarInvencivel()
             if (vida.vidas <= 0){
                 image(imgGameOver, width/2 - 200, height/3)
-                text('pressione ENTER para continuar', height / 7 * 5)
+                text('pressione ENTER para continuar', width, height / 7 * 5)
                 noLoop()
                 somDoJogo.stop();
-                //this.btnReset.draw();
+                this.btnReset.draw();
             }
         }
 

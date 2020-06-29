@@ -5,7 +5,7 @@ class Moedas{
     this.delay = delay
     this.x = width + this.delay
     this. imagem = imagem
-    this.variacaoY = variacaoY
+    this.y = height - this.altura - variacaoY;
     this.largura =larguraSprite
     this.altura = altura
     this.larguraSprite = larguraSprite
@@ -13,7 +13,7 @@ class Moedas{
   }
   
   exibe() {
-    image(this.imagem, this.x, this.variacaoY, this.largura, this.altura, this.larguraSprite, this.alturaSprite);
+    image(this.imagem, this.x, this.y, this.largura, this.altura, this.larguraSprite, this.alturaSprite);
     }
 
   move(){

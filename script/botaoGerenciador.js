@@ -17,10 +17,10 @@ class BotaoGerenciador {
     }
 
     _alteraCena(){
+        cenaAtual = this.cena
         this.botao.remove()
         this.musica.stop()
-        this.musicaS.loop()
-        loop()     
-        cenaAtual = this.cena
+        this.musicaS.loop() 
+        
     }
 }
