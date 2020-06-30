@@ -2,7 +2,7 @@ class Jogos {
     constructor(){
         //loader = new Loader
         this.inimigoAtual = 0    
-        this.btnReset = new BotaoGerenciador('Reiniciar', width / 2, height / 2, 'telaInicial', somDoJogo, somTitulo)        
+        //this.btnReset = new BotaoGerenciador('Reiniciar', width / 2, height / 2, 'telaInicial', somDoJogo, somTitulo)        
     }
     
 
@@ -15,8 +15,8 @@ class Jogos {
         vida = new Vida(7, 3)
 
         personagem = new Personagem(matriz.personagem, imgPersonagem, 0, 30, 170, 200, 440);
-        propMoeda = new Moedas(imgMoeda, width - 100, 200, 100, 100, 270,270, 100)
-        propVida = new animaVida(imgVida, width -70, 200, 70, 70, 270, 270, 100)
+        propMoeda = new Moedas(imgMoeda, width, 200, 150, 150, 540, 540, 100)
+        propVida = new animaVida(imgVida, width, 200, 100, 100, 540, 540, 100)
         const inimigo = new Inimigo(matriz.inimigo, imgInimigo, width - 135, 30, 125, 125, 540, 540, 10, 100);
         const inimigoGrande = new Inimigo(matriz.inimigoGrande, imgInimigoGrande, width - 52, 30, 220, 220, 1080, 1080, 15, 150)
         const inimigoVoador = new Inimigo(matriz.inimigoVoador, imgInimigoVoador, width - 100, 250, 210, 150, 810, 540, 10, 200)
