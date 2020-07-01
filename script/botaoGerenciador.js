@@ -1,9 +1,9 @@
 class BotaoGerenciador {
-    constructor(texto, x, y, cena, musica, musicaS){
+    constructor(texto, x, y, musica, musicaS){
         this.texto = texto
         this.x = x
         this.y = y
-        this.cena =cena
+        //this.cena = cena
         this.musica = musica
         this.musicaS = musicaS
         this.botao = createButton(this.texto)
@@ -17,7 +17,7 @@ class BotaoGerenciador {
     }
 
     _alteraCena(){
-        cenaAtual = this.cena
+        cenaAtual = 'jogo'
         this.botao.remove()
         this.musica.stop()
         this.musicaS.loop() 

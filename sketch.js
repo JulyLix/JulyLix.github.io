@@ -4,7 +4,7 @@
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-
+  
   somTitulo.loop()
   frameRate(40)
   jogo = new Jogos
@@ -12,9 +12,11 @@ function setup() {
   jogo.setup()
   cenas = {
     jogo,
-    telaInicial
+    telaInicial,
+    gameOver
   }
-  //botaoGerenciador = new BotaoGerenciador('Iniciar', width / 2, height / 2, 'jogo', somTitulo, somDoJogo)
+  botaoGerenciador = new BotaoGerenciador('Iniciar', width / 2, height / 2, somTitulo, somDoJogo)
+  
 }
 
 function keyPressed() {
